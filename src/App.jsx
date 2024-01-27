@@ -1,15 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React, {lazy, Suspense} from 'react'
-import './App.css'
+import Home from './paginas/Home'
+import Pedidos from './paginas/Pedidos'
+
+
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
-          <Route path="/" element={<h1>Probando</h1>} />
-        </Route>
+        <Route path='/' element={<Home/>} />
+        <Route path='/pedidos' element={<Pedidos/>}/>
       </Routes>
     </BrowserRouter>
   )

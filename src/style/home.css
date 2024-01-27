@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-container-banner {
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.banner-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/pexels-william-choquette-26418861.png');
+}
+
+.banner-container h1 {
+    color: #FFFFFF;
+    font-size: 48px;
+    margin-top: 3em;
+
+}
+
+.home-continer-selectores {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.selectores-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+
+}
+
+.selectores-container label {
+    font-size: 16px;
+}
+
+.selector-tipo-comida, .selector-categoria {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectores-container select {
+    width: 318px;
+    height: 44px;
+    border-radius: 8px;
+    border-color: #D0D5DD;
+    padding: 10px 14px 10px 14px;
+    gap: 4px;
+    color: #667085;
+    font-size: 16px;
+    color: none;
+
+}
+
