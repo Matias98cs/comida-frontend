@@ -1,11 +1,30 @@
+import { useEffect, useState } from "react"
 import useComidas from "../../hooks/useComidas"
 import SelectorCard from "../selectorCard/SelectorCard"
 
 const Selectores = () => {
-  const {comidas, buscarCategoria, categorias} = useComidas()
+  const [selectComida, setSelectComida] = useState()
+  const [selectCategoria, setSelectCategoria] = useState()
+  const {comidas, buscarCategoria, categorias, buscarMenus} = useComidas()
+
+
   const handleSelectorUno = (e) => {
-    buscarCategoria(e.target.value)
+    let selectorUno = e.target.value
+    buscarCategoria(selectorUno)
+    setSelectComida(selectorUno)
   }
+  const handleSelectorDos = (e) => {
+    let selectorDos = e.target.value
+    setSelectCategoria(selectorDos)
+  }
+
+  useEffect(() => {
+    if (selectComida, selectCategoria) {
+      console.log(`Tipo de comida: ${selectComida}`)
+      console.log(`Categoria: ${selectCategoria}`)
+      buscarMenus(selectComida, selectCategoria)
+    }
+  }, [selectComida, selectCategoria])
   return (
     <div className="selectores-container">
       <div className="selector-tipo-comida">
@@ -21,7 +40,7 @@ const Selectores = () => {
 
       <div className="selector-categoria">
         <label htmlFor="categorias">Categorias</label>
-        <select name="categorias" id="categorias">
+        <select name="categorias" id="categorias" onChange={handleSelectorDos}>
             <option value="0">Seleccioná una categoría</option>
             {categorias?.map( (cate) => (
               <SelectorCard data={cate} key={cate.id}/>

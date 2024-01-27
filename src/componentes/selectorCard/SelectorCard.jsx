@@ -2,7 +2,7 @@
 const SelectorCard = ({data}) => {
   return (
     <>
-    <option value={data.id}>{data.nombre}</option> 
+    <option value={data.nombre}>{data.nombre}</option> 
     </>
   )
 }

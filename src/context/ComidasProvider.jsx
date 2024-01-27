@@ -21,10 +21,22 @@ const ComidasProvider = ({children}) => {
         obtenerComidas()
     }, [])
 
-    const buscarCategoria = (id) => {
-        const comidaSeleccionada = comidas.find( comida => parseInt(comida.id) === parseInt(id))
+    const buscarCategoria = (nombre) => {
+        const comidaSeleccionada = comidas.find( comida => comida.nombre === nombre)
         setCategorias(comidaSeleccionada.categoria)
+        // setSelectorComida('')
     }
+
+    const buscarMenus = async(tipoComida, categoria) => {
+        console.log(`Tipo Comida: ${tipoComida} - Categoria: ${categoria}`)
+        try {
+            const menus = await clientAxios(`/mostar-menu/?tipo_comida=${tipoComida}&categoria=${categoria}`)
+            console.log(menus.data)
+        } catch (error) {
+            console.log(`Error al intentar buscar los menus para Tipo de comida: ${tipoComida} y Categoria: ${categoria}`)
+        }
+    }
+
     return (
         <ComidasContext.Provider
             value={{
@@ -32,7 +44,8 @@ const ComidasProvider = ({children}) => {
                 selectorUno,
                 categorias,
                 setSelectorUno,
-                buscarCategoria
+                buscarCategoria,
+                buscarMenus
             }}
         >
             {children}
