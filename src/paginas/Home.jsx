@@ -10,10 +10,7 @@ const Home = () => {
   const {menus} = useComidas()
 
   return (
-    <div className='home'>
-      <div className='home-container-banner'>
-        <HomerBanner/>
-      </div>
+    <>
       <div className='home-continer-selectores'>
         <Selectores/>
       </div>
@@ -29,7 +26,7 @@ const Home = () => {
           null
         }
       </div>
-    </div>
+    </>
   )
 }
 

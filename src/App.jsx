@@ -3,6 +3,7 @@ import React, {lazy, Suspense} from 'react'
 import Home from './paginas/Home'
 import Pedidos from './paginas/Pedidos'
 import { ComidasProvider } from './context/ComidasProvider'
+import Layout from './layouts/Layout'
 
 
 
@@ -12,8 +13,10 @@ function App() {
     <BrowserRouter>
       <ComidasProvider>
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/pedidos' element={<Pedidos/>}/>
+          <Route path='' element={<Layout/>}>
+            <Route path='/' element={<Home/>} />
+            <Route path='/pedidos' element={<Pedidos/>}/>
+          </Route>
         </Routes>
       </ComidasProvider>
     </BrowserRouter>
