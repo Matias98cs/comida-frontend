@@ -9,6 +9,8 @@ const ComidasProvider = ({children}) => {
     const [selectorUno, setSelectorUno] = useState()
     const [categorias, setCategorias] = useState()
     const [menus, setMenus] = useState()
+    const [pedidos, setPedidos] = useState()
+    const [recargar, setRecargar] = useState(false)
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -24,10 +26,28 @@ const ComidasProvider = ({children}) => {
         obtenerComidas()
     }, [])
 
+    useEffect(() => {
+        const obtenerPedidos = async () => {
+            try {
+                const {data} = await clientAxios('/pedir-menu')
+                setPedidos(data.data)
+
+            } catch (error) {
+                console.log(`Hubo un error al obtener los pedidos: {error.message}`)
+            }
+        }
+        obtenerPedidos()
+    }, [recargar])
+
+    const fechaFormateada = (dato) => {
+        const fecha = new Date(dato)
+        const obtenerHora = fecha.toTimeString().split(' ')[0]
+        return obtenerHora
+    }
+
     const buscarCategoria = (nombre) => {
         const comidaSeleccionada = comidas.find( comida => comida.nombre === nombre)
         setCategorias(comidaSeleccionada.categoria)
-        // setSelectorComida('')
     }
 
     const buscarMenus = async(tipoComida, categoria) => {
@@ -43,8 +63,8 @@ const ComidasProvider = ({children}) => {
     const pedirMenu = async(id) => {
         try {
             const {data} = await clientAxios.post(`/pedir-menu`, {"menu_id": id})
-            console.log(data)
             setOpenModal(true)
+            setRecargar(!recargar)
         } catch (error) {
             console.log(`Hubo un error al intentar pedir el menu: ${id} - ${error}`)
         }
@@ -58,11 +78,15 @@ const ComidasProvider = ({children}) => {
                 categorias,
                 menus,
                 openModal,
+                pedidos,
+                recargar,
                 setSelectorUno,
                 buscarCategoria,
                 buscarMenus,
                 pedirMenu,
-                setOpenModal
+                setOpenModal,
+                fechaFormateada,
+                setRecargar
             }}
         >
             {children}

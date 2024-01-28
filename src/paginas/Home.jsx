@@ -1,4 +1,3 @@
-import HomerBanner from '../componentes/homeBanner/HomerBanner'
 import MenusTable from '../componentes/menusTable/MenusTable'
 import ModalPedido from '../componentes/modal/ModalPedido'
 import Selectores from '../componentes/selectores/Selectores'

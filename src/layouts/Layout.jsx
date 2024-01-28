@@ -3,8 +3,8 @@ import {Outlet} from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div className="home">
-        <div className='home-container-banner'>
+    <div className="main">
+        <div className='main-container-banner'>
             <HomerBanner/>
         </div>
       <Outlet/>

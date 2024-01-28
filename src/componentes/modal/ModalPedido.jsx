@@ -1,12 +1,16 @@
 import { Modal } from 'react-responsive-modal';
+import {useNavigate} from 'react-router-dom'
 import '../../style/modal.css'
 import 'react-responsive-modal/styles.css';
 import useComidas from '../../hooks/useComidas';
 
 const ModalPedido = () => {
     const {openModal, setOpenModal} = useComidas()
-
-    const onCloseModal = () => setOpenModal(!open);
+    const navigate = useNavigate()
+    const onCloseModal = () => {
+      setOpenModal(!openModal)
+      navigate('/pedidos')
+    };
   
     return (
       <>

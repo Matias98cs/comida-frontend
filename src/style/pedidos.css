@@ -1,0 +1,7 @@
+.pedido-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding-bottom: 2em;
+}
+

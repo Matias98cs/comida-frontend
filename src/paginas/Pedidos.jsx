@@ -1,9 +1,13 @@
+import PedidosTable from "../componentes/pedidos/PedidosTable"
+import '../style/pedidos.css'
+
 const Pedidos = () => {
   return (
     <div className='pedido-container'>
-        <div>
-            <h1>Pedidos</h1>
-        </div>
+      <h1>Últimos Pedidos Tomados</h1>
+      <div className="pedido-table">
+        <PedidosTable/>
+      </div>
     </div>
   )
 }

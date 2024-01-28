@@ -4,6 +4,7 @@ import send from "../../assets/prime_send.png"
 const MenusTable = () => {
 
   const {menus, pedirMenu} = useComidas()
+
   return (
     <>
     <table>
