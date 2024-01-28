@@ -27,6 +27,7 @@ const MenusTable = () => {
             <td className="btn-pedir">
               <button onClick={() => {
                 setRecargar(true)
+                
                 pedirMenu(menu.id)
                 }}>
                 <img src={send}/>

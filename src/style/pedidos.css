@@ -2,7 +2,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 3em;
-    padding-bottom: 3em;
+    padding-bottom: 2em;
+    gap: 2em;
 }
 
+.pedido-container h1 {
+    padding-top: 1em;
+}

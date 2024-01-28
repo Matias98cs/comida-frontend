@@ -1,30 +1,33 @@
 import MenusTable from '../componentes/menusTable/MenusTable'
 import ModalPedido from '../componentes/modal/ModalPedido'
 import Selectores from '../componentes/selectores/Selectores'
+import Spinner from '../componentes/spinner/Spinner'
 import useComidas from '../hooks/useComidas'
 import '../style/home.css'
 
 const Home = () => {
 
-  const {menus} = useComidas()
-
+  const {menus, cargando} = useComidas()
   return (
     <>
       <div className='home-continer-selectores'>
         <Selectores/>
       </div>
-      <div className='home-container-menus'>
-        {
+      {
           menus?.length > 1 ? (
-            <>
-              <MenusTable/>
-              <ModalPedido/>
-            </>
+            cargando ? 
+            <Spinner/>
+            :
+            (
+              <div className='home-container-menus'>
+                <MenusTable/>
+                <ModalPedido/>
+              </div>
+            )
           )
           :
           null
         }
-      </div>
     </>
   )
 }

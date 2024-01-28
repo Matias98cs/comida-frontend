@@ -11,7 +11,7 @@ const ComidasProvider = ({children}) => {
     const [menus, setMenus] = useState()
     const [pedidos, setPedidos] = useState()
     const [recargar, setRecargar] = useState(false)
-
+    const [cargando, setCargando] = useState(false)
     const [openModal, setOpenModal] = useState(false)
 
     useEffect(() => {
@@ -56,6 +56,10 @@ const ComidasProvider = ({children}) => {
             setMenus(menus.data.data)
         } catch (error) {
             console.log(`Error al intentar buscar los menus para Tipo de comida: ${tipoComida} y Categoria: ${categoria}`)
+        } finally {
+            setTimeout(() => {
+                setCargando(false)
+            }, 1500)
         }
     }
 
@@ -82,13 +86,15 @@ const ComidasProvider = ({children}) => {
                 openModal,
                 pedidos,
                 recargar,
+                cargando,
                 setSelectorUno,
                 buscarCategoria,
                 buscarMenus,
                 pedirMenu,
                 setOpenModal,
                 fechaFormateada,
-                setRecargar
+                setRecargar,
+                setCargando
             }}
         >
             {children}

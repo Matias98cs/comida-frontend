@@ -4,51 +4,49 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4em;
 }
 
 .main-container-banner {
-    background-color: burlywood;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 960px;
+    height: 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../assets/cover-comida-app.png');
 }
 
 .banner-container {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-image: url('../assets/pexels-william-choquette-26418861.png');
+    align-self: flex-end;
 }
 
 .banner-container h1 {
     color: #FFFFFF;
     font-size: 48px;
-    margin-top: 3em;
+    padding-bottom: 1em;
 
 }
 
 .home-continer-selectores {
     width: 100%;
+    height: 30%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
 .selectores-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: self-start;
+    padding-top: 2.5em;
     gap: 24px;
     width: 100%;
+    height: 100%;
 
 }
 
@@ -79,7 +77,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-bottom: 3em;
+    padding-bottom: 2em;
 }
 
 
@@ -127,3 +125,53 @@ td {
 .btn-pedir button:hover {
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas */
+    .main {
+        gap: 2em;
+    }
+    .main-container-banner {
+        width: 100% ;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: green;
+        background-image: url('../assets/pexels-william-choquette-26418861-mobile.png');
+    }
+
+    .banner-container h1 {
+        font-size: 30px;
+        line-height: 28px;
+    }
+  
+    .home-continer-selectores {
+        height: 312px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .selectores-container {
+        flex-direction: column;
+    }
+
+    .selectores-container {
+        justify-content: center;
+        align-items: center;
+    }
+  
+    select {
+
+        width: 100%;
+    }
+    
+    .home-container-menus {
+        width: 100%;
+        padding: 2rem;
+    }
+  
+    table {
+        width: 100%;
+    }
+  }
