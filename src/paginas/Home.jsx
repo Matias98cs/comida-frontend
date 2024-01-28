@@ -1,5 +1,6 @@
 import HomerBanner from '../componentes/homeBanner/HomerBanner'
 import MenusTable from '../componentes/menusTable/MenusTable'
+import ModalPedido from '../componentes/modal/ModalPedido'
 import Selectores from '../componentes/selectores/Selectores'
 import useComidas from '../hooks/useComidas'
 import '../style/home.css'
@@ -25,6 +26,7 @@ const Home = () => {
           null
         }
       </div>
+      <ModalPedido/>
     </div>
   )
 }

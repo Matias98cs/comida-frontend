@@ -1,0 +1,33 @@
+.modal {
+    width: 358px;
+    height: 188px;
+    border-radius: 8px;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.modal-container h2 {
+    font-size: 18px;
+    color: #202020;
+}
+
+.modal-container p {
+    font-size: 14px;
+    color: #646464;
+}
+
+.modal-container button {
+    border: none;
+    width: 120px;
+    background-color: #000000;
+    border-radius: 8px;
+    padding: .5em;
+    color: #FFFF;
+    align-self: center;
+}
