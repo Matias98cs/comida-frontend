@@ -51,7 +51,6 @@ const ComidasProvider = ({children}) => {
     }
 
     const buscarMenus = async(tipoComida, categoria) => {
-        console.log(`Tipo Comida: ${tipoComida} - Categoria: ${categoria}`)
         try {
             const menus = await clientAxios(`/mostar-menu/?tipo_comida=${tipoComida}&categoria=${categoria}`)
             setMenus(menus.data.data)
@@ -64,9 +63,12 @@ const ComidasProvider = ({children}) => {
         try {
             const {data} = await clientAxios.post(`/pedir-menu`, {"menu_id": id})
             setOpenModal(true)
-            setRecargar(!recargar)
         } catch (error) {
             console.log(`Hubo un error al intentar pedir el menu: ${id} - ${error}`)
+        } finally {
+            setTimeout(() => {
+                setRecargar(false)
+            }, 2000)
         }
     }
 

@@ -3,7 +3,7 @@ import send from "../../assets/prime_send.png"
 
 const MenusTable = () => {
 
-  const {menus, pedirMenu} = useComidas()
+  const {menus, pedirMenu, setRecargar} = useComidas()
 
   return (
     <>
@@ -25,7 +25,10 @@ const MenusTable = () => {
             <td>{menu.nombre}</td>
             <td>${menu.precio}</td>
             <td className="btn-pedir">
-              <button onClick={() => pedirMenu(menu.id)}>
+              <button onClick={() => {
+                setRecargar(true)
+                pedirMenu(menu.id)
+                }}>
                 <img src={send}/>
                 Pedir
               </button>
