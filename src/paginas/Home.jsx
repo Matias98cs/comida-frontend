@@ -20,13 +20,15 @@ const Home = () => {
       <div className='home-container-menus'>
         {
           menus?.length > 1 ? (
-            <MenusTable/>
+            <>
+              <MenusTable/>
+              <ModalPedido/>
+            </>
           )
           :
           null
         }
       </div>
-      <ModalPedido/>
     </div>
   )
 }
