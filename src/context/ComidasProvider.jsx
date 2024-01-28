@@ -8,6 +8,7 @@ const ComidasProvider = ({children}) => {
     const [comidas, setComidas] = useState()
     const [selectorUno, setSelectorUno] = useState()
     const [categorias, setCategorias] = useState()
+    const [menus, setMenus] = useState()
 
     useEffect(() => {
         const obtenerComidas = async () => {
@@ -31,9 +32,18 @@ const ComidasProvider = ({children}) => {
         console.log(`Tipo Comida: ${tipoComida} - Categoria: ${categoria}`)
         try {
             const menus = await clientAxios(`/mostar-menu/?tipo_comida=${tipoComida}&categoria=${categoria}`)
-            console.log(menus.data)
+            setMenus(menus.data.data)
         } catch (error) {
             console.log(`Error al intentar buscar los menus para Tipo de comida: ${tipoComida} y Categoria: ${categoria}`)
+        }
+    }
+
+    const pedirMenu = async(id) => {
+        try {
+            const {data} = await clientAxios.post(`/pedir-menu`, {"menu_id": id})
+            console.log(data)
+        } catch (error) {
+            console.log(`Hubo un error al intentar pedir el menu: ${id} - ${error}`)
         }
     }
 
@@ -43,9 +53,11 @@ const ComidasProvider = ({children}) => {
                 comidas,
                 selectorUno,
                 categorias,
+                menus,
                 setSelectorUno,
                 buscarCategoria,
-                buscarMenus
+                buscarMenus,
+                pedirMenu
             }}
         >
             {children}

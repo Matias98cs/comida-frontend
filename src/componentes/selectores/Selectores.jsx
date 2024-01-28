@@ -20,8 +20,6 @@ const Selectores = () => {
 
   useEffect(() => {
     if (selectComida, selectCategoria) {
-      console.log(`Tipo de comida: ${selectComida}`)
-      console.log(`Categoria: ${selectCategoria}`)
       buscarMenus(selectComida, selectCategoria)
     }
   }, [selectComida, selectCategoria])
