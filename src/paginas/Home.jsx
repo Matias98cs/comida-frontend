@@ -17,18 +17,14 @@ const Home = () => {
         <Selectores/>
       </div>
       <div className='home-container-menus'>
-        <MenusTable/>
+        {
+          menus?.length > 1 ? (
+            <MenusTable/>
+          )
+          :
+          null
+        }
       </div>
-      {/* {
-        menus ? (
-          <div className='home-container-menus'>
-            <Menus/>
-          </div>
-        )
-        :
-        null
-      } */}
-      
     </div>
   )
 }
