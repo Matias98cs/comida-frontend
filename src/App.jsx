@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React, {lazy, Suspense} from 'react'
 import Home from './paginas/Home'
 import Pedidos from './paginas/Pedidos'
 import { ComidasProvider } from './context/ComidasProvider'
 import Layout from './layouts/Layout'
-
 
 
 function App() {

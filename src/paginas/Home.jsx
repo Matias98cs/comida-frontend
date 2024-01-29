@@ -20,7 +20,9 @@ const Home = () => {
             :
             (
               <div className='home-container-menus'>
+                <div className='table-container'>
                 <MenusTable/>
+                </div>
                 <ModalPedido/>
               </div>
             )

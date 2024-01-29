@@ -127,51 +127,53 @@ td {
 }
 
 @media (max-width: 768px) {
-    /* Estilos para pantallas más pequeñas */
-    .main {
-        gap: 2em;
-    }
     .main-container-banner {
-        width: 100% ;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: green;
         background-image: url('../assets/pexels-william-choquette-26418861-mobile.png');
     }
-
+    .banner-container {
+        height: 100%;
+        align-items: flex-end;
+    }
     .banner-container h1 {
         font-size: 30px;
-        line-height: 28px;
+        text-align: center;
     }
-  
+
     .home-continer-selectores {
-        height: 312px;
+    }
+
+    .selectores-container {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;   
+    }
+    .home-container-menus {
+        width: 100%;
+    }
+
+    .table-container {
+        padding-top: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .pedido-container {
+        width: 100%;
+    }
+
+    .pedido-container table {
+        width: 50%;
+    }
+
+    .pedido-table {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-  
-    .selectores-container {
-        flex-direction: column;
-    }
-
-    .selectores-container {
-        justify-content: center;
-        align-items: center;
-    }
-  
-    select {
-
-        width: 100%;
-    }
-    
-    .home-container-menus {
-        width: 100%;
-        padding: 2rem;
-    }
-  
-    table {
-        width: 100%;
-    }
-  }
+}
